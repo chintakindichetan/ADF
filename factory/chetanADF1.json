@@ -1,0 +1,9 @@
+{
+	"name": "chetanADF1",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "bebac496-c0b8-48ef-83b8-7261a6f219b9",
+		"tenantId": "c0fbd1c9-1744-4fc5-85ee-1b16d73b9b68"
+	}
+}
