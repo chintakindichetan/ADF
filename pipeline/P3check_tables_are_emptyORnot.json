@@ -55,7 +55,14 @@
 						{
 							"name": "Copy data1",
 							"type": "Copy",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "Set variable1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,
@@ -97,7 +104,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"tablename": {
-											"value": "@item().Tables_list",
+											"value": "@variables('foreach values')",
 											"type": "Expression"
 										}
 									}
@@ -109,17 +116,80 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"filename": {
-											"value": "@concat(item().Tables_list,'.csv')",
+											"value": "@concat(variables('foreach values'),'.csv')",
 											"type": "Expression"
 										}
 									}
 								}
 							]
+						},
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "foreach values",
+								"value": {
+									"value": "@item().Tables_list",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "If Condition1",
+							"type": "IfCondition",
+							"dependsOn": [
+								{
+									"activity": "Copy data1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@equals(activity('Copy data1').output.rowsread,0)",
+									"type": "Expression"
+								},
+								"ifTrueActivities": [
+									{
+										"name": "Web1",
+										"type": "WebActivity",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"url": "https://prod-26.centralindia.logic.azure.com:443/workflows/547b6b6ce7a146828ac8547b1761194d/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=WjsxwQxRbatplrEfXgXOoUJA9kypAvjihVPnIfer1f4",
+											"method": "POST",
+											"headers": {
+												"Content-Type": "application/json"
+											},
+											"body": {
+												"value": "{\n    \"Pipeline_name\" : \"@{pipeline().Pipeline}\",\n    \"table_name\" :\"@{variables('foreach values')}\",\n    \"is_empty\" : \"Yes\"\n}\n",
+												"type": "Expression"
+											}
+										}
+									}
+								]
+							}
 						}
 					]
 				}
 			}
 		],
+		"variables": {
+			"foreach values": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
