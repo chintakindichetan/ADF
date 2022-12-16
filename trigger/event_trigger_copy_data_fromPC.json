@@ -3,10 +3,17 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [],
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "copy_data_fromPC_copy1",
+					"type": "PipelineReference"
+				}
+			}
+		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/container2/blobs/copy_frompc/",
+			"blobPathBeginsWith": "/container2/blobs/copyfrom_pc_to_ADLS/",
 			"blobPathEndsWith": ".csv",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/01d76d4a-b205-472c-9324-950c24bb2efb/resourceGroups/Demo/providers/Microsoft.Storage/storageAccounts/chetanadls1",
