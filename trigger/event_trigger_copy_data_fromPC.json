@@ -2,7 +2,7 @@
 	"name": "event_trigger_copy_data_fromPC",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
@@ -13,8 +13,8 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/container2/blobs/container2/copy_frompc/",
-			"blobPathEndsWith": ".csv",
+			"blobPathBeginsWith": "/container2/blobs/container2/copy_frompc",
+			"blobPathEndsWith": "*.csv",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/01d76d4a-b205-472c-9324-950c24bb2efb/resourceGroups/Demo/providers/Microsoft.Storage/storageAccounts/chetanadls1",
 			"events": [
