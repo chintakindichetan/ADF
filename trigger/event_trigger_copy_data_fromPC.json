@@ -13,7 +13,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/container2/blobs/container2/copy_frompc/",
+			"blobPathBeginsWith": "/container2/blobs/container2/",
 			"blobPathEndsWith": ".csv",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/01d76d4a-b205-472c-9324-950c24bb2efb/resourceGroups/Demo/providers/Microsoft.Storage/storageAccounts/chetanadls1",
