@@ -48,6 +48,14 @@
 				]
 			}
 		],
+		"parameters": {
+			"path": {
+				"type": "string"
+			},
+			"filename": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
