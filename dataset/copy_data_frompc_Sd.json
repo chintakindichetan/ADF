@@ -1,0 +1,17 @@
+{
+	"name": "copy_data_frompc_Sd",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FileServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "writer (1) (1).csv"
+			}
+		}
+	}
+}
