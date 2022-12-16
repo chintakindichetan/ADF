@@ -2,7 +2,7 @@
 	"name": "event_trigger_copy_data_fromPC",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
