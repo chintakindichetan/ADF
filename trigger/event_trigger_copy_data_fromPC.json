@@ -3,18 +3,7 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "copy_data_fromPC_copy1",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"path": "@triggerbody().folderpath",
-					"filename": "@triggerbody().filename"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
 			"blobPathBeginsWith": "/container2/blobs/copyfrom_pc_to_ADLS/",
