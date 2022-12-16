@@ -162,7 +162,7 @@
 										"typeProperties": {
 											"variableName": "temp",
 											"value": {
-												"value": "@concat(variables('foreach values'),',',variables('op'))",
+												"value": "@concat(variables('foreach values'),variables('op'),',')",
 												"type": "Expression"
 											}
 										}
@@ -219,7 +219,7 @@
 						"Content-Type": "application/json"
 					},
 					"body": {
-						"value": "{\n    \"Pipeline_name\" : \"@{pipeline().Pipeline}\",\n    \"table_name\" : \"@{variables('op')}\",\n    \"is_empty\" : \"Yes\"\n}\n",
+						"value": "{\n    \"Pipeline_name \" : \"@{pipeline().Pipeline}\",\n    \"table_name \" : \"@{variables('op')}\"\n    \n}\n",
 						"type": "Expression"
 					}
 				}
