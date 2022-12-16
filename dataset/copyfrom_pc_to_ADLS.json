@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "copyfrom_pc_to_ADLS",
+				"folderPath": "copy_frompc",
 				"fileSystem": "container2"
 			}
 		}
