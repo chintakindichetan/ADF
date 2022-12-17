@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "copy_from_webpage_as_html",
 	"properties": {
 		"activities": [
 			{
