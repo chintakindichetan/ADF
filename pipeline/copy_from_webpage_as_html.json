@@ -35,13 +35,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Binary3",
+						"referenceName": "copy_from_webpage",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Binary4",
+						"referenceName": "copyfrom_webpageop",
 						"type": "DatasetReference"
 					}
 				]
