@@ -1,0 +1,15 @@
+{
+	"name": "Webtable",
+	"properties": {
+		"annotations": [],
+		"type": "Web",
+		"typeProperties": {
+			"url": "https://www.cricbuzz.com/cricket-stats/icc-rankings/men/batting",
+			"authenticationType": "Anonymous"
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1shir",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
