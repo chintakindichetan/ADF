@@ -1,5 +1,5 @@
 {
-	"name": "Binary4",
+	"name": "copyfrom_webpageop",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
