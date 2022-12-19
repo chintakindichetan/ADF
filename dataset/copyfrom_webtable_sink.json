@@ -1,5 +1,5 @@
 {
-	"name": "copyfrom_webtable",
+	"name": "copyfrom_webtable_sink",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -16,6 +16,7 @@
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": []
