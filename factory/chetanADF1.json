@@ -1,5 +1,13 @@
 {
 	"name": "chetanADF1",
+	"properties": {
+		"globalParameters": {
+			"global_parameter1": {
+				"type": "string",
+				"value": "Hello"
+			}
+		}
+	},
 	"location": "centralindia",
 	"identity": {
 		"type": "SystemAssigned",
