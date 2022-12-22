@@ -24,10 +24,9 @@
 						"type": "SqlServerSink",
 						"writeBehavior": "upsert",
 						"upsertSettings": {
-							"useTempDB": false,
+							"useTempDB": true,
 							"keys": [
-								"EMPNO",
-								"ENAME"
+								"EMPNO"
 							]
 						},
 						"sqlWriterUseTableLock": false
