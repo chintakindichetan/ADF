@@ -1,5 +1,5 @@
 {
-	"name": "SqlServerTable5",
+	"name": "UPSERT_Sink",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlServer3",

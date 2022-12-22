@@ -50,7 +50,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "SqlServerTable5",
+						"referenceName": "UPSERT_Sink",
 						"type": "DatasetReference"
 					}
 				]
