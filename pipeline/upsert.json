@@ -43,7 +43,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "upsert_src",
+						"referenceName": "upsert_src_emp_tbl",
 						"type": "DatasetReference"
 					}
 				],
