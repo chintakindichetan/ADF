@@ -1,5 +1,5 @@
 {
-	"name": "upsert_src",
+	"name": "upsert_src_emp_tbl",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlServer3",
