@@ -50,7 +50,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "sink_EMP"
+			"table": "sink_EMP_FT"
 		}
 	}
 }

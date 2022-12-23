@@ -1,0 +1,30 @@
+{
+	"name": "SRC_EMP_FT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "EMPNO",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ENAME",
+				"type": "varchar"
+			},
+			{
+				"name": "JOB",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "sRC_EMP_FT"
+		}
+	}
+}
