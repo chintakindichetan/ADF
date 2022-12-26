@@ -103,7 +103,10 @@
 							"outputs": [
 								{
 									"referenceName": "IL_load_sink_cpy2",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"table_name": "@concat('OP',item().tablename)"
+									}
 								}
 							]
 						},
