@@ -1,0 +1,33 @@
+{
+	"name": "IL_loadsrctable_cpy2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "TableName",
+				"type": "varchar"
+			},
+			{
+				"name": "Incrmental_col",
+				"type": "varchar"
+			},
+			{
+				"name": "WatermarkValue",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "updated_max_date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		]
+	}
+}

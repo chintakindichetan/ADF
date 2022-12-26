@@ -22,34 +22,6 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Lookup_old_date",
-							"type": "Lookup",
-							"dependsOn": [],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"source": {
-									"type": "SqlServerSource",
-									"sqlReaderQuery": {
-										"value": "select watermarkvalue from wmtable where  tablename = '@{item().TableName}'",
-										"type": "Expression"
-									},
-									"queryTimeout": "02:00:00",
-									"partitionOption": "None"
-								},
-								"dataset": {
-									"referenceName": "IL_loadMult_oldlkup",
-									"type": "DatasetReference"
-								}
-							}
-						},
-						{
 							"name": "Lookup_New_date",
 							"type": "Lookup",
 							"dependsOn": [],
@@ -65,7 +37,7 @@
 								"source": {
 									"type": "SqlServerSource",
 									"sqlReaderQuery": {
-										"value": "select max(@{item().Incrmental_col}) as new_wm from @{item().TableName}",
+										"value": "select max(@{item().Incrmental_col}) as new_wm from @{item().TableName}\n",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
@@ -81,12 +53,6 @@
 							"name": "Copy data1",
 							"type": "Copy",
 							"dependsOn": [
-								{
-									"activity": "Lookup_old_date",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								},
 								{
 									"activity": "Lookup_New_date",
 									"dependencyConditions": [
@@ -106,7 +72,7 @@
 								"source": {
 									"type": "SqlServerSource",
 									"sqlReaderQuery": {
-										"value": "select * from @{item().TableName}  where @{item().Incrmental_col} > '@{activity('Lookup_old_date').output.firstRow.WatermarkValue}' and @{item().Incrmental_col} <= '@{activity('Lookup_New_date').output.firstRow.new_wm}'",
+										"value": "select * from @{item().TableName}  \nwhere @{item().Incrmental_col} > '@{activity('Lookup1').output.WatermarkValue}' \nand @{item().Incrmental_col} <= '@{activity('Lookup_New_date').output.firstRow.new_wm}'\n\n",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
@@ -130,20 +96,14 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "incremental_load_newlkup",
+									"referenceName": "IL_loadsrctable_cpy2",
 									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
 								{
-									"referenceName": "SqlServerTable3",
-									"type": "DatasetReference",
-									"parameters": {
-										"tablename": {
-											"value": "@concat('OP',item().tablename)",
-											"type": "Expression"
-										}
-									}
+									"referenceName": "IL_load_sink_cpy2",
+									"type": "DatasetReference"
 								}
 							]
 						},
@@ -178,7 +138,7 @@
 									},
 									"TableName": {
 										"value": {
-											"value": "@item().TableName",
+											"value": "@activity('Lookup1').output.Tablename",
 											"type": "Expression"
 										},
 										"type": "String"
@@ -186,7 +146,7 @@
 								}
 							},
 							"linkedServiceName": {
-								"referenceName": "SqlServer2",
+								"referenceName": "SqlServer3",
 								"type": "LinkedServiceReference"
 							}
 						}
@@ -212,7 +172,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "IL_load_Mutl_lookup",
+						"referenceName": "wm_table2",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false

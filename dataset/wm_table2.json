@@ -1,27 +1,29 @@
 {
-	"name": "incremental_load_newlkup",
+	"name": "wm_table2",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlServer3",
 			"type": "LinkedServiceReference"
 		},
-		"folder": {
-			"name": "IL"
-		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [
 			{
-				"name": "PersonID",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "Name",
+				"name": "TableName",
 				"type": "varchar"
 			},
 			{
-				"name": "LastModifytime",
+				"name": "Incrmental_col",
+				"type": "varchar"
+			},
+			{
+				"name": "WatermarkValue",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "updated_max_date",
 				"type": "datetime",
 				"precision": 23,
 				"scale": 3
@@ -29,8 +31,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "data_source_table"
+			"table": "WMtable"
 		}
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }
