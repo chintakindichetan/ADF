@@ -72,7 +72,7 @@
 								"source": {
 									"type": "SqlServerSource",
 									"sqlReaderQuery": {
-										"value": "select * from @{item().TableName}  \nwhere @{item().Incrmental_col} > '@{activity('Lookup1').output.value.WatermarkValue}' \nand @{item().Incrmental_col} <= '@{activity('Lookup_New_date').output.firstRow.new_wm}'\n\n",
+										"value": "select * from @{item().TableName}  \nwhere @{item().Incrmental_col} > '@{item().WatermarkValue}' \nand @{item().Incrmental_col} <= '@{activity('Lookup_New_date').output.firstRow.new_wm}'\n\n",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
@@ -141,7 +141,7 @@
 									},
 									"TableName": {
 										"value": {
-											"value": "@activity('Lookup1').output.Tablename",
+											"value": "@item().TableName",
 											"type": "Expression"
 										},
 										"type": "String"
